@@ -122,7 +122,7 @@ program annual_trends
 	gen vol_pc = total_volume/household_size
 	sort cat year
 	twoway connected vol_pc year, by(category_name, yrescale)
-	graph export "../output/BWI_`country'.pdf", replace
+	graph export "../output/BWI_`country'.png", replace
 	
 end
 

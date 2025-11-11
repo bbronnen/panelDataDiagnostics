@@ -71,13 +71,6 @@ program check_barcode
 		sleep 1000
 	}
 
-// variables present in each year after unifyVarNames
-// DE: variable barcode barcode_description brand category_name manufacturer measurement_unit pl sub_brand
-// NL: variable barcode barcode_description brand category_name manufacturer measurement_unit pl sub_brand volume_per_unit 
-
-
-//	import delim using "$locationRaw/NL/purchase_promo_2012.csv", rowrange(1:1000) clear
-//	import delim using "$locationRaw/NL/barcode_NL_2017.csv", rowrange(1:1000) clear
 end
 	
 
@@ -132,7 +125,8 @@ end
 program unifyVarNames
 
 	if "`country'" == "DE"  {
-	
+		cap rename barcode_ean barcode 
+		cap rename barcode_ean_deascription barcode_description
 	}
 	if "`country'" == "NL"  {
 		cap rename barcode_ean barcode 
